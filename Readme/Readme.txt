@@ -1,125 +1,117 @@
 
 
-ぜろちゃんねるプラス Ver.0.7.4 - Readme.txt
+Zero Channel Plus Ver.0.7.4 - Readme.txt
 
-公式WEB : http://zerochplus.sourceforge.jp/
+Official Website: http://zerochplus.sourceforge.jp/
 
 
-■はじめに
-　このファイルは、本家ぜろちゃんねる(http://0ch.mine.nu/)のスクリプトを２ちゃんねる仕様
-に改造するという目的ではじまったプロジェクト「ぜろちゃんねるプラス」の取り扱い説明書です。
+■ Preface
+　This is the instruction manual for Zero Channel Plus, it is based on
+the original 2ch-based Zero Channel ( http://0ch.mine.nu/ ) script.
 　なるべくどのような人でもわかるように解説していきたいですがなにぶん製作者が面倒くさがり
 なので至らない点があるかもしれませんがご了承ください。
-　なおこのファイルは本家ぜろちゃんねるの/readme/readme.txtを元に編集されていますので一部
-原文ままの部分があります。ご了承ください。
+　Please note that this is a modified verion of the original readme.txt
+file, so some parts from the original text remain.
 
 
-■ぜろちゃんねるプラスとは
-　スレッドフロート型掲示板を動作させるPerlスクリプトとして製作されたぜろちゃんねるの機能
-改善版です。
-　もともとはぜろちゃんねるスクリプトを使って作られた掲示板群の改造が適当だったので作りな
-おすことが目的でしたが「どうせならほかの人にも使ってもらおう」ということで今回の公開に至
-りました。
-　ぜろちゃんねると同じく２ちゃんねる専用ブラウザでも書き込みと閲覧が可能です。
-
-
-■動作環境
-  ★必須環境
+■ System Requirements
+  ★ Required Enviroment
     ・CGIの動作が可能なHTTPDが入っており，Perl 5.8以上(Perl 6は含まない)もしくはそのディ
       ストリビューション系ソフトウェアが動作するOS
     ・5MB以上のディスクスペース 
-  ★推奨環境
+  ★ Recommended Enviroment
     ・suEXECでCGI動作が可能なApache HTTP Serverが入っており，Perl 5.8以上(Perl 6は含まな
       い)が動作するUNIX系もしくはLinux系のOS
     ・10MB以上のディスクスペース
 
-■配布ファイル構成
+■ Distribution File Structure
 zerochplus_x.x.x/
- + Readme/                    - 最初に読むべきファイル
+ + Readme/                    - The files that should be read first.
  |  + ArtisticLicense.txt
- |  + Readme.txt              - ぜろちゃんねるプラスのReadmeファイル(これです)
- |  + Readme0ch.txt           - ぜろちゃんねる(本家)のReadmeファイル
+ |  + Readme.txt              - Readme for Zero Channel Plus. (You are here.)
+ |  + Readme0ch.txt           - Readme for Zero Channel. (Original file.)
  |
- + test/                      - ぜろちゃんねるプラス動作ディレクトリ
-    + *.cgi                   - 基本動作用CGI
-    + datas/                  - 初期データ・固定データ格納用
+ + test/                      - Zero Channel Plus Operation Directory
+    + *.cgi                   - CGI Files for Basic Operation.
+    + datas/                  - Initial Data and Fixed Data Storage.
     |  + 1000.txt
     |  + 2000000000.dat
     |  :
     + info/
-    |  + category.cgi         - 掲示板カテゴリの初期定義ファイル
-    |  + errmes.cgi           - エラーメッセージ定義ファイル
-    |  + users.cgi            - 初期ユーザ(Administrator)定義ファイル
+    |  + category.cgi         - Initial Definition File for Board Categories.
+    |  + errmes.cgi           - Error Message Definition File.
+    |  + users.cgi            - Initial User (Administrator) Definition File.
     + module/
-    |  + *.pl                 - ぜろちゃんねるモジュール
+    |  + *.pl                 - Zero Channel Modules.
     + mordor/
-    |  + *.pl                 - 管理CGI用モジュール
+    |  + *.pl                 - CGI Files for Management.
     + plugin/
-    |  + 0ch_*.pl             - プラグインスクリプト
+    |  + 0ch_*.pl             - Plugin Scripts.
     + perllib/
-       + *                    - ぜろちゃんねるプラスに必要なパッケージ
+       + *                    - Zero Channel Plus Required Packages.
 
-■設置方法概略
-　Wikiにて画像つきの設置方法の解説を公開しています。
-  ・Install - ぜろちゃんねるプラス Wiki
+■ Installation Method Outline
+　The wiki provides installation instructions with images.
+  ・Install - Zero Channel Plus Wiki
     http://sourceforge.jp/projects/zerochplus/wiki/Install
 
-1.スクリプト変更
+1. Change the Script
 
 	・構成ファイルtest直下の.cgiファイルを開き、1行目に書いてあるperlパス
 	  を環境に合わせて変更します。
 	
-	※以下のようになっている場所を変更します。
+	※In other words, change the line that looks like this:
 	
 		#!/usr/bin/perl
 
-2.スクリプトアップロード
+2. Upload the Script
 
-	・構成ファイルのtest以下すべてを設置サーバにアップロードします。
-	・アップロード後パーミッションを適切な値に設定します。
+	・Upload all the files under /test/ to the installation server.
+	・After uploading, set the permissions to an appropriate value.
 	
-	※パーミッションの値については以下のページを参照
-	・Permission - ぜろちゃんねるプラス
+	※For permission values, see the following page:
+	・Permission - Zero Channel Plus
 	  http://sourceforge.jp/projects/zerochplus/wiki/Permission
 
-3.設定
+3. Configuration
 
-	・[設置サーバ]/test/admin.cgiにアクセスします。
-	・ユーザ名"Administrator",パス"zeroch"でログインします。
-	・画面上部の"システム設定"メニューを選択します。
-	・画面左側の"基本設定"メニューを選択します。
-	・項目[稼動サーバ]を適切な値に設定し、[設定]ボタンを押します。
-	・再度画面左側の"基本設定"メニューを選択して、稼動サーバが更新されていることを確認し
-	  てください。
-	  （もしされていない場合はパーミッションの設定に問題があるかもしれません）
-	・画面上部の"ユーザー"メニューを選択します。
-	・画面中央の[User Name]列の"Administrator"を選択します。
-	・ユーザ名、パスワードを変更して[設定]ボタンを押します。
-	・画面上部の"ログオフ"を選択します。
+	・Access [Installation Server]/test/admin.cgi.
+	・Login with User: "Administrator", Pass: "zeroch".
+	・Select "System Settings" (システム設定) at the top of the screen.
+	・Select "Basic Settings" (基本設定) at the left side of the screen.
+	・Set the [Operation Server] (稼動サーバ) to an appropriate value,
+	  then click on [Set] (設定).
+	・Select "Basic Settings" on the left side of the screen again to
+	  verify that the active server has updated.
+	  (If nothing changed, there may be a problem with permissions.)
+	・Select "User" (ユーザー) at the top of the screen.
+	・Select "Administrator" under the [User Name] column.
+	・Change the username and password, then click on [Set] (設定).
+	・Select "Log Off" (ログオフ) at the top of the screen.
 
-4.掲示板作成
+4. Create Boards
 
-	・先ほど設定した管理者ユーザでログインします。
-	・画面上部の"掲示板"メニューを選択します。
-	・画面左側の"掲示板作成"メニューを選択します。
-	・必要項目を記入して[作成]ボタンを押します。
+	・Log in as the administrator user that you set earlier.
+	・Select "Bulletin Board" (掲示板) at the top of the screen.
+	・Select "Board Creation" (掲示板作成) at the left side of the screen.
+	・Fill in the necessary items, then click on [Create] (作成).
 
-5.掲示板設定
+5. Board Settings
 
-	・画面上部の"掲示板"メニューを選択します。
-	・掲示板一覧より、設定する掲示板を選択します。
-	・画面上部の"掲示板設定"を選択します。
-	・各項目を設定します。
+	・Select "Bulletin Board" (掲示板) at the top of the screen.
+	・Choose the desired bulletin board, from the board list.
+	・Select "Board Settings" (掲示板設定) at the top of the screen.
+	・Set each item.
 
 -----------------------------------------------------------------------
-※注意：
-	・設置後のAdministratorユーザは必ず変更を行ってください。設置直後は
-	  ユーザ名とパスワードが固定なので、放置しておくと管理者以外に管理
-	  権限でログインされてしまう危険があります。
+※Warning：
+	・Immediately change the Administrator user file after installation
+	  since the username and password is fixed. There is a risk of
+	  granting someone else permissions if left untouched.
 -----------------------------------------------------------------------
 
 
-■ライセンス
+■ License
 　本スクリプトのライセンスは本家ぜろちゃんねると同じ扱いとします。以下は本家ぜろちゃんね
 る /readme/readme.txt からの引用です。
 
@@ -133,34 +125,34 @@ zerochplus_x.x.x/
 
 　perllibに含めてあるパッケージについては後述。
 
-■バージョンアップについて
+■ Regarding Version Upgrade
 　0.7.0からバージョンアップの際には管理画面にて通知するようになりました。
 　セキュリティ修正を含むアップデートも多々ありますのでお手数かと思いますが、こまめなアッ
 プデートをよろしくおねがいします。
 
 
-■ヘルプ・サポート
-　さらに詳しい内容をお求めの方は以下のページを参照してください。
-  ・ヘルプ - ぜろちゃんねるプラス
+■ Help and Support
+　For further details, please refer to the following pages:
+  ・Help - Zero Channel Plus
     http://zerochplus.sourceforge.jp/help/
-  ・ぜろちゃんねるプラスWiki
+  ・Zero Channel Plus Wiki
     http://sourceforge.jp/projects/zerochplus/wiki/
 
-　以上のページに求めている情報がない場合や不具合報告などしていただける場合は以下からお問
-い合わせください。
-  ・サポート - ぜろちゃんねるプラス
+　If you can't find the information you want or would like to report
+bugs, feel free to contact us with the information below.
+  ・Support - Zero Channel Plus
     http://zerochplus.sourceforge.jp/support/
 
-■謝辞
-　ぜろちゃんねるプラスを作成するにあたって支援していただいたすべての皆様に感謝します。
-　そして何より元であるスクリプトのぜろちゃんねるをつくられた精神衰弱さんには心から感謝し
-ます。
+■ Special Thanks
+　We would like to thank everyone who supported Zero Channel Plus.
+　Above all, we would like to thank Seishin Suijaku ◆Y3kwSzvOHE for
+writing the original script.
 
-■公式WEB
+■ Official Website
 　http://zerochplus.sourceforge.jp/
 
-■perllibにあるパッケージ
-　これらはぜろちゃんねるプラスの実行に必要なパッケージです。すでにインストールされている
+■ PERLLIB Packages
+　これらはZero Channel Plusの実行に必要なパッケージです。すでにインストールされている
 サーバーもあるかもしれませんが、一応含めておきます。
 　以下はパッケージの詳細です。
 
